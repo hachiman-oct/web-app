@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3倍速プレイヤー</title>
+</head>
+
+<body>
+    <h2>MP3倍速プレイヤー</h2>
+    <label for="fileInput">MP3ファイルを選択してください: </label>
+    <input type="file" accept="audio/mpeg" id="fileInput" title="MP3ファイルを選択" placeholder="ファイルを選択"><br><br>
+    <audio id="audioPlayer" controls></audio><br><br>
+    <label for="speedControl">再生速度: </label>
+    <select id="speedControl">
+        <option value="0.5">0.5x</option>
+        <option value="1" selected>1x（通常）</option>
+        <option value="1.5">1.5x</option>
+        <option value="2">2x</option>
+    </select>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const audioPlayer = document.getElementById('audioPlayer');
+        const speedControl = document.getElementById('speedControl');
+
+        fileInput.addEventListener('change', function () {
+            const file = fileInput.files[0];
+            if (file) {
+                const objectURL = URL.createObjectURL(file);
+                audioPlayer.src = objectURL;
+                audioPlayer.play();
+            }
+        });
+
+        speedControl.addEventListener('change', function () {
+            audioPlayer.playbackRate = parseFloat(this.value);
+        });
+    </script>
+</body>
+
+</html>
