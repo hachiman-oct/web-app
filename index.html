@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MP3倍速プレイヤー</title>
+    <title>Web-app</title>
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icons/icon-180.png">
     <link rel="icon" href="icons/favicon-16.ico" sizes="16x16" type="image/x-icon">
@@ -22,14 +22,14 @@
 </head>
 
 <body>
-    <h2>MP3倍速プレイヤー</h2>
-    <label for="fileInput">MP3ファイルを選択してください: </label>
-    <input type="file" accept="audio/mpeg" id="fileInput" title="MP3ファイルを選択" placeholder="ファイルを選択"><br><br>
+    <h2>MP3 Speed Player</h2>
+    <label for="fileInput">Select an MP3 file: </label>
+    <input type="file" accept="audio/mpeg" id="fileInput" title="Select MP3 file" placeholder="Choose a file"><br><br>
     <audio id="audioPlayer" controls></audio><br><br>
-    <label for="speedControl">再生速度: </label>
+    <label for="speedControl">Playback speed: </label>
     <select id="speedControl">
         <option value="0.5">0.5x</option>
-        <option value="1" selected>1x（通常）</option>
+        <option value="1" selected>1x (Normal)</option>
         <option value="1.5">1.5x</option>
         <option value="2">2x</option>
     </select>
