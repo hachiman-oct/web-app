@@ -1,7 +1,7 @@
 {
     "name": "MP3倍速プレイヤー",
     "short_name": "MP3プレイヤー",
-    "start_url": "/index.html",
+    "start_url": "/web-app/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#000000",
@@ -9,17 +9,17 @@
         {
             "src": "icon-180.png",
             "sizes": "180x180",
-            "type": "image/png"
+            "type": "/web-app/image/png"
         },
                 {
             "src": "icon-192.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "/web-app/image/png"
         },
         {
             "src": "icon-512.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "/web-app/image/png"
         }
     ]
 }
