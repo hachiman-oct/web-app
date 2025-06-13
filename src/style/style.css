@@ -9,6 +9,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .play-audio {
