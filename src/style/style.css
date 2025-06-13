@@ -9,9 +9,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 .play-audio {
@@ -22,6 +19,9 @@ body {
   margin-top: 48px;
   min-width: 320px;
   max-width: 90vw;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .play-audio h2 {
   margin-top: 0;
@@ -91,7 +91,8 @@ body {
   .play-audio h2 {
     font-size: 1.3rem;
   }
-  .play-audio input[type=file], .play-audio select {
+  .play-audio input[type=file],
+  .play-audio select {
     font-size: 0.8rem;
   }
   .play-audio .seek-buttons {

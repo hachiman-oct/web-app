@@ -9,10 +9,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 .play-audio {
@@ -23,6 +19,9 @@ body {
     margin-top: 48px;
     min-width: 320px;
     max-width: 90vw;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
 
     h2 {
@@ -105,7 +104,8 @@ body {
             font-size: 1.3rem;
         }
 
-        input[type="file"], select {
+        input[type="file"],
+        select {
             font-size: .8rem;
         }
 
