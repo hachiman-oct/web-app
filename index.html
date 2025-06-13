@@ -9,7 +9,8 @@
     <link rel="apple-touch-icon" href="icons/icon-180.png">
     <link rel="icon" href="icons/favicon-16.ico" sizes="16x16" type="image/x-icon">
     <link rel="icon" href="icons/favicon-32.ico" sizes="32x32" type="image/x-icon">
-    
+    <link rel="stylesheet" href="src/style/style.css">
+
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/service-worker.js').then(() => {
@@ -19,39 +20,28 @@
             });
         }
     </script>
+    <script src="src/js/main.js"></script>
 </head>
 
 <body>
-    <h2>MP3 Speed Player</h2>
-    <label for="fileInput">Select an MP3 file: </label>
-    <input type="file" accept="audio/mpeg" id="fileInput" title="Select MP3 file" placeholder="Choose a file"><br><br>
-    <audio id="audioPlayer" controls></audio><br><br>
-    <label for="speedControl">Playback speed: </label>
-    <select id="speedControl">
-        <option value="0.5">0.5x</option>
-        <option value="1" selected>1x (Normal)</option>
-        <option value="1.5">1.5x</option>
-        <option value="2">2x</option>
-    </select>
-
-    <script>
-        const fileInput = document.getElementById('fileInput');
-        const audioPlayer = document.getElementById('audioPlayer');
-        const speedControl = document.getElementById('speedControl');
-
-        fileInput.addEventListener('change', function () {
-            const file = fileInput.files[0];
-            if (file) {
-                const objectURL = URL.createObjectURL(file);
-                audioPlayer.src = objectURL;
-                audioPlayer.play();
-            }
-        });
-
-        speedControl.addEventListener('change', function () {
-            audioPlayer.playbackRate = parseFloat(this.value);
-        });
-    </script>
+    <div class="play-audio">
+        <h2>MP3 Player</h2>
+        <label for="fileInput">Select an MP3 file: </label>
+        <input type="file" accept="audio/mpeg" id="fileInput" title="Select MP3 file"
+            placeholder="Choose a file"><br><br>
+        <audio id="audioPlayer" controls></audio><br><br>
+        <label for="speedControl">Playback speed: </label>
+        <select id="speedControl">
+            <option value="0.25">0.25x</option>
+            <option value="0.5">0.5x</option>
+            <option value="0.75">0.75x</option>
+            <option value="1" selected>1x (Normal)</option>
+            <option value="1.25">1.25x</option>
+            <option value="1.5">1.5x</option>
+            <option value="1.75">1.75x</option>
+            <option value="2">2x</option>
+        </select>
+    </div>
 </body>
 
 </html>

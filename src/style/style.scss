@@ -1,0 +1,92 @@
+body {
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  background: #0a0a2a;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.play-audio {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  padding: 32px 24px;
+  margin-top: 48px;
+  min-width: 320px;
+  max-width: 90vw;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 2rem;
+  color: #7ecfff;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+label {
+  font-size: 1rem;
+  margin-right: 8px;
+}
+
+input[type="file"] {
+  padding: 6px 12px;
+  border: 1px solid #7ecfff;
+  border-radius: 4px;
+  background: #181848;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 16px;
+  outline: none;
+
+  &::file-selector-button {
+    background: #7ecfff;
+    color: #181848;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+    margin-right: 8px;
+    &:hover {
+      background: #4fa3d1;
+    }
+  }
+}
+
+audio {
+  width: 100%;
+  margin-bottom: 16px;
+  background: #222;
+  border-radius: 8px;
+}
+
+select {
+  padding: 6px 12px;
+  border: 1px solid #7ecfff;
+  border-radius: 4px;
+  background: #181848;
+  color: #fff;
+  font-size: 1rem;
+  margin-left: 8px;
+}
+
+@media (max-width: 400px) {
+  .play-audio {
+    min-width: unset;
+    padding: 16px 4vw;
+  }
+  audio {
+    width: 100%;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+}
