@@ -20,8 +20,7 @@ body {
   min-width: 320px;
   max-width: 90vw;
 }
-
-h2 {
+.play-audio h2 {
   margin-top: 0;
   margin-bottom: 24px;
   font-size: 2rem;
@@ -29,13 +28,11 @@ h2 {
   letter-spacing: 1px;
   text-align: center;
 }
-
-label {
+.play-audio label {
   font-size: 1rem;
   margin-right: 8px;
 }
-
-input[type=file] {
+.play-audio input[type=file] {
   padding: 6px 12px;
   border: 1px solid #7ecfff;
   border-radius: 4px;
@@ -44,8 +41,10 @@ input[type=file] {
   font-size: 1rem;
   margin-bottom: 16px;
   outline: none;
+  box-sizing: border-box;
+  width: 100%;
 }
-input[type=file]::file-selector-button {
+.play-audio input[type=file]::file-selector-button {
   background: #7ecfff;
   color: #181848;
   border: none;
@@ -56,18 +55,16 @@ input[type=file]::file-selector-button {
   transition: background 0.2s;
   margin-right: 8px;
 }
-input[type=file]::file-selector-button:hover {
+.play-audio input[type=file]::file-selector-button:hover {
   background: #4fa3d1;
 }
-
-audio {
+.play-audio audio {
   width: 100%;
   margin-bottom: 16px;
   background: #222;
   border-radius: 8px;
 }
-
-select {
+.play-audio select {
   padding: 6px 12px;
   border: 1px solid #7ecfff;
   border-radius: 4px;
@@ -76,17 +73,40 @@ select {
   font-size: 1rem;
   margin-left: 8px;
 }
+.play-audio .seek-buttons {
+  display: none;
+}
 
 @media (max-width: 400px) {
   .play-audio {
     min-width: unset;
     padding: 16px 4vw;
   }
-  audio {
+  .play-audio audio {
     width: 100%;
   }
-  h2 {
+  .play-audio h2 {
     font-size: 1.3rem;
+  }
+  .play-audio input[type=file], .play-audio select {
+    font-size: 0.8rem;
+  }
+  .play-audio .seek-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .play-audio .seek-buttons button {
+    background: #7ecfff;
+    color: #181848;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
   }
 }
 

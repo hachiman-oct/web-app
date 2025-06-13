@@ -10,7 +10,6 @@
     <link rel="icon" href="icons/favicon-16.ico" sizes="16x16" type="image/x-icon">
     <link rel="icon" href="icons/favicon-32.ico" sizes="32x32" type="image/x-icon">
     <link rel="stylesheet" href="src/style/style.css">
-
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/service-worker.js').then(() => {
@@ -30,6 +29,14 @@
         <input type="file" accept="audio/mpeg" id="fileInput" title="Select MP3 file"
             placeholder="Choose a file"><br><br>
         <audio id="audioPlayer" controls></audio><br><br>
+        <div class="seek-buttons">
+            <button type="button" id="rewind60">< 60s</button>
+            <button type="button" id="rewind30">< 30s</button>
+            <button type="button" id="rewind15">< 15s</button>
+            <button type="button" id="forward15">15s ></button>
+            <button type="button" id="forward30">30s ></button>
+            <button type="button" id="forward60">60s ></button>
+        </div>
         <label for="speedControl">Playback speed: </label>
         <select id="speedControl">
             <option value="0.25">0.25x</option>

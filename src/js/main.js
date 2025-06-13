@@ -18,5 +18,22 @@ document.addEventListener('DOMContentLoaded', () => {
     speedControl.addEventListener('change', function () {
         audioPlayer.playbackRate = parseFloat(this.value);
     });
+    // --- Seek Buttons ---
+    const seekConfig = [
+        { id: 'rewind60', sec: -60 },
+        { id: 'rewind30', sec: -30 },
+        { id: 'rewind15', sec: -15 },
+        { id: 'forward15', sec: 15 },
+        { id: 'forward30', sec: 30 },
+        { id: 'forward60', sec: 60 }
+    ];
+    seekConfig.forEach(cfg => {
+        const btn = document.getElementById(cfg.id);
+        if (btn && audioPlayer) {
+            btn.addEventListener('click', () => {
+                audioPlayer.currentTime = Math.max(0, audioPlayer.currentTime + cfg.sec);
+            });
+        }
+    });
 });
 //# sourceMappingURL=main.js.map
