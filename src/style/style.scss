@@ -89,6 +89,13 @@ body {
 }
 
 @media (max-width: 400px) {
+    html,
+    body {
+        overflow: hidden;
+        height: 100%;
+        touch-action: none;
+    }
+
     .play-audio {
         min-width: unset;
         padding: 16px 4vw;
