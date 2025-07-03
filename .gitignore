@@ -5,3 +5,5 @@ icons/src/
 # build output
 *.css.map
 *.js.map
+
+.hintrc

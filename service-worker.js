@@ -3,8 +3,8 @@ self.addEventListener('install', (event) => {
         caches.open('mp3-player-cache').then((cache) => {
             return cache.addAll([
                 '/',
-                '/index.html',
-                '/manifest.json',
+                '/web-app/index.html',
+                '/web-app/manifest.json',
             ]);
         })
     );
