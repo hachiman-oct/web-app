@@ -1,122 +1,339 @@
-body {
-  font-family: "Segoe UI", "Arial", sans-serif;
-  background: #0a0a2a;
-  color: #fff;
+/* ==========================================
+   CSS Variables - Design Tokens
+   ========================================== */
+:root {
+  /* Colors */
+  --color-primary-start: #4F46E5;
+  --color-primary-end: #7C3AED;
+  --color-success: #10B981;
+  --color-accent: #7ecfff;
+
+  /* Backgrounds */
+  --bg-dark: #0F172A;
+  --bg-card: rgba(30, 41, 59, 0.8);
+  --bg-input: rgba(51, 65, 85, 0.6);
+  --bg-hover: rgba(71, 85, 105, 0.4);
+
+  /* Text */
+  --text-primary: #F1F5F9;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+
+  /* Borders */
+  --border-color: rgba(148, 163, 184, 0.2);
+  --border-radius: 16px;
+  --border-radius-sm: 8px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 20px rgba(79, 70, 229, 0.3);
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ==========================================
+   Reset & Base Styles
+   ========================================== */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  padding: var(--spacing-lg);
+  line-height: 1.6;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
 }
 
+/* ==========================================
+   Main Container
+   ========================================== */
 .play-audio {
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-  padding: 32px 24px;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-xl);
   margin-top: 48px;
   min-width: 320px;
-  max-width: 90vw;
+  max-width: 600px;
+  width: 90vw;
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  animation: fadeIn 0.6s ease;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
+
+.play-audio:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   Title
+   ========================================== */
 .play-audio h2 {
   margin-top: 0;
-  margin-bottom: 24px;
+  margin-bottom: var(--spacing-lg);
   font-size: 2rem;
-  color: #7ecfff;
-  letter-spacing: 1px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-primary-start), var(--color-primary-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-align: center;
+  letter-spacing: 0.5px;
 }
+
+/* ==========================================
+   Labels
+   ========================================== */
 .play-audio label {
-  font-size: 1rem;
-  margin-right: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xs);
+  display: block;
 }
-.play-audio input[type=file] {
-  padding: 6px 12px;
-  border: 1px solid #7ecfff;
-  border-radius: 4px;
-  background: #181848;
-  color: #fff;
+
+/* ==========================================
+   File Input
+   ========================================== */
+.play-audio input[type="file"] {
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  background: var(--bg-input);
+  color: var(--text-primary);
   font-size: 1rem;
-  margin-bottom: 16px;
+  margin-bottom: var(--spacing-md);
   outline: none;
-  box-sizing: border-box;
   width: 100%;
+  transition: all var(--transition-fast);
+  font-family: inherit;
 }
-.play-audio input[type=file]::file-selector-button {
-  background: #7ecfff;
-  color: #181848;
+
+.play-audio input[type="file"]:focus {
+  border-color: var(--color-primary-start);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+  background: rgba(71, 85, 105, 0.6);
+}
+
+.play-audio input[type="file"]::file-selector-button {
+  background: linear-gradient(135deg, var(--color-primary-start), var(--color-primary-end));
+  color: white;
   border: none;
-  border-radius: 4px;
-  padding: 6px 16px;
+  border-radius: var(--border-radius-sm);
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  font-weight: bold;
-  transition: background 0.2s;
-  margin-right: 8px;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  margin-right: 0.75rem;
+  font-family: inherit;
 }
-.play-audio input[type=file]::file-selector-button:hover {
-  background: #4fa3d1;
+
+.play-audio input[type="file"]::file-selector-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
 }
+
+.play-audio input[type="file"]::file-selector-button:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================
+   Audio Player
+   ========================================== */
 .play-audio audio {
   width: 100%;
-  margin-bottom: 16px;
-  background: #222;
-  border-radius: 8px;
+  margin-bottom: var(--spacing-md);
+  background: var(--bg-input);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--border-color);
 }
-.play-audio select {
-  padding: 6px 12px;
-  border: 1px solid #7ecfff;
-  border-radius: 4px;
-  background: #181848;
-  color: #fff;
-  font-size: 1rem;
-  margin-left: 8px;
-}
+
+/* ==========================================
+   Seek Buttons
+   ========================================== */
 .play-audio .seek-buttons {
   display: none;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.play-audio .seek-buttons button {
+  background: linear-gradient(135deg, var(--color-primary-start), var(--color-primary-end));
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.play-audio .seek-buttons button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width var(--transition-normal), height var(--transition-normal);
+}
+
+.play-audio .seek-buttons button:hover::before {
+  width: 150px;
+  height: 150px;
+}
+
+.play-audio .seek-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+.play-audio .seek-buttons button:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================
+   Select Dropdown
+   ========================================== */
+.play-audio select {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-size: 1rem;
+  margin-left: var(--spacing-xs);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+  outline: none;
+}
+
+.play-audio select:hover {
+  border-color: var(--color-primary-start);
+  background: var(--bg-hover);
+}
+
+.play-audio select:focus {
+  border-color: var(--color-primary-start);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+/* ==========================================
+   Responsive Design
+   ========================================== */
+@media (max-width: 768px) {
+  body {
+    padding: var(--spacing-md);
+  }
+
+  .play-audio {
+    padding: var(--spacing-lg);
+  }
+
+  .play-audio h2 {
+    font-size: 1.75rem;
+  }
 }
 
 @media (max-width: 400px) {
+
   html,
   body {
     overflow: hidden;
     height: 100%;
     touch-action: none;
   }
+
+  body {
+    padding: var(--spacing-sm);
+  }
+
   .play-audio {
     min-width: unset;
-    padding: 16px 4vw;
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-lg);
   }
+
   .play-audio audio {
     width: 100%;
   }
+
   .play-audio h2 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
   }
-  .play-audio input[type=file],
+
+  .play-audio label {
+    font-size: 0.85rem;
+  }
+
+  .play-audio input[type="file"],
   .play-audio select {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    padding: 0.625rem 0.75rem;
   }
+
   .play-audio .seek-buttons {
     display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
   }
+
   .play-audio .seek-buttons button {
-    background: #7ecfff;
-    color: #181848;
-    border: none;
-    border-radius: 0.3rem;
-    padding: 0.3rem 0.5rem;
-    font-size: 0.7rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .play-audio select {
+    margin-left: 0;
+    margin-top: var(--spacing-xs);
+    width: 100%;
   }
 }
-
-/*# sourceMappingURL=style.css.map */

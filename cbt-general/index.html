@@ -1,32 +1,33 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CBT形式テスト対策用の選択式問題練習解答フォーム">
+    <meta name="description" content="CBT-style multiple choice practice test answer form">
     <meta name="darkreader-lock">
-    <title>CBT練習用解答フォーム</title>
+    <title>CBT Practice Answer Form</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
     <div class="container">
         <header class="app-header">
-            <h1 class="app-title">🎓 CBT練習用解答フォーム</h1>
-            <p class="app-subtitle">選択式問題の練習ツール</p>
+            <h1 class="app-title">🎓 CBT Practice Answer Form</h1>
+            <p class="app-subtitle">Multiple Choice Practice Tool</p>
         </header>
 
-        <!-- 設定モード -->
+        <!-- Setup Mode -->
         <section id="setupMode" class="mode-section active">
             <div class="card">
-                <h2 class="section-title">📝 テスト設定</h2>
+                <h2 class="section-title">📝 Test Setup</h2>
                 <form id="setupForm" class="setup-form">
                     <div class="form-group">
-                        <label for="questionCount">問題数</label>
+                        <label for="questionCount">Number of Questions</label>
                         <div class="number-stepper">
                             <button type="button" class="stepper-btn stepper-minus"
                                 data-target="questionCount">−</button>
@@ -34,28 +35,28 @@
                             <button type="button" class="stepper-btn stepper-plus"
                                 data-target="questionCount">＋</button>
                         </div>
-                        <span class="input-hint">1〜200問</span>
+                        <span class="input-hint">1 to 200 questions</span>
                     </div>
 
                     <div class="form-group">
-                        <label for="choiceCount">選択肢の数</label>
+                        <label for="choiceCount">Number of Choices</label>
                         <div class="number-stepper">
                             <button type="button" class="stepper-btn stepper-minus" data-target="choiceCount">−</button>
                             <input type="number" id="choiceCount" min="2" max="10" value="5" required>
                             <button type="button" class="stepper-btn stepper-plus" data-target="choiceCount">＋</button>
                         </div>
-                        <span class="input-hint">2〜10択</span>
+                        <span class="input-hint">2 to 10 choices</span>
                     </div>
 
                     <div class="form-group">
-                        <label for="choiceLabels">選択肢の名前（カンマ区切り）</label>
+                        <label for="choiceLabels">Choice Labels (comma separated)</label>
                         <input type="text" id="choiceLabels" placeholder="A, B, C, D, E" required autocomplete="off"
                             data-1p-ignore data-lpignore="true">
-                        <span class="input-hint">例: A, B, C, D, E または 1, 2, 3, 4, 5</span>
+                        <span class="input-hint">Example: A, B, C, D, E or 1, 2, 3, 4, 5</span>
                     </div>
 
                     <div class="form-group">
-                        <label for="timeLimit">制限時間（分）</label>
+                        <label for="timeLimit">Time Limit (minutes)</label>
                         <div class="time-input-group">
                             <div class="number-stepper">
                                 <button type="button" class="stepper-btn stepper-minus"
@@ -66,29 +67,29 @@
                             </div>
                             <label class="checkbox-label">
                                 <input type="checkbox" id="noTimeLimit">
-                                <span>制限なし</span>
+                                <span>No limit</span>
                             </label>
                         </div>
-                        <span class="input-hint">0で制限なし、または「制限なし」にチェック</span>
+                        <span class="input-hint">0 for no limit, or check "No limit"</span>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-large">
                         <span class="btn-icon">🚀</span>
-                        解答フォームを作成
+                        Create Answer Form
                     </button>
                 </form>
             </div>
         </section>
 
-        <!-- 解答モード -->
+        <!-- Answer Mode -->
         <section id="answerMode" class="mode-section">
             <div class="mode-header">
                 <div class="mode-info">
-                    <h2 class="section-title">✏️ 解答入力</h2>
+                    <h2 class="section-title">✏️ Answer Input</h2>
                     <div id="answerProgress" class="progress-info"></div>
                 </div>
                 <div id="timerDisplay" class="timer-display hidden">
-                    <div class="timer-label">残り時間</div>
+                    <div class="timer-label">Time Remaining</div>
                     <div id="timerValue" class="timer-value">60:00</div>
                 </div>
             </div>
@@ -98,26 +99,26 @@
             <div class="mode-actions">
                 <button id="saveAnswersBtn" class="btn btn-primary btn-large">
                     <span class="btn-icon">💾</span>
-                    解答を保存して採点へ
+                    Save Answers and Grade
                 </button>
                 <button id="backToSetupBtn" class="btn btn-secondary">
                     <span class="btn-icon">⬅️</span>
-                    設定に戻る
+                    Back to Setup
                 </button>
             </div>
         </section>
 
-        <!-- 答え合わせモード -->
+        <!-- Grading Mode -->
         <section id="gradingMode" class="mode-section">
             <div class="mode-header">
-                <h2 class="section-title">📊 答え合わせ</h2>
+                <h2 class="section-title">📊 Grading</h2>
                 <div id="scoreDisplay" class="score-display hidden">
                     <div class="score-card">
-                        <div class="score-label">正解数</div>
+                        <div class="score-label">Correct Answers</div>
                         <div id="correctCount" class="score-value">0</div>
                     </div>
                     <div class="score-card">
-                        <div class="score-label">正答率</div>
+                        <div class="score-label">Accuracy Rate</div>
                         <div id="accuracyRate" class="score-value">0%</div>
                     </div>
                 </div>
@@ -125,7 +126,7 @@
 
             <div class="grading-controls">
                 <button type="button" id="inputCorrectBtn" class="btn btn-secondary btn-large">
-                    📝 正解を入力
+                    📝 Input Correct Answers
                 </button>
             </div>
 
@@ -133,10 +134,10 @@
 
             <div class="mode-actions">
                 <button type="button" id="showResultsBtn" class="btn btn-success btn-large hidden">
-                    ✅ 採点結果を表示
+                    ✅ Show Grading Results
                 </button>
                 <button type="button" id="resetBtn" class="btn btn-secondary btn-large">
-                    🔄 新しいテストを作成
+                    🔄 Create New Test
                 </button>
             </div>
         </section>
