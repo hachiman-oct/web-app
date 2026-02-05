@@ -1,53 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Web-app</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="icons/icon-180.png">
-    <link rel="icon" href="icons/favicon-16.ico" sizes="16x16" type="image/x-icon">
-    <link rel="icon" href="icons/favicon-32.ico" sizes="32x32" type="image/x-icon">
-    <link rel="stylesheet" href="src/style/style.css">
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js').then(() => {
-                console.log('Service Worker registered successfully.');
-            }).catch((error) => {
-                console.error('Service Worker registration failed:', error);
-            });
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web Applications Directory">
+    <title>Web Apps</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    </script>
-    <script src="src/js/main.js"></script>
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: #F1F5F9;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #4F46E5, #7C3AED);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #CBD5E1;
+            margin-bottom: 3rem;
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .app-card {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .app-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(79, 70, 229, 0.3);
+            border-color: #4F46E5;
+        }
+
+        .app-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #F1F5F9;
+        }
+
+        .app-description {
+            color: #94A3B8;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="play-audio">
-        <h2>MP3 Player</h2>
-        <label for="fileInput">Select an MP3 file: </label>
-        <input type="file" accept="audio/mpeg" id="fileInput" title="Select MP3 file"
-            placeholder="Choose a file"><br><br>
-        <audio id="audioPlayer" controls></audio><br><br>
-        <div class="seek-buttons">
-            <button type="button" id="rewind60">< 60s</button>
-            <button type="button" id="rewind30">< 30s</button>
-            <button type="button" id="rewind15">< 15s</button>
-            <button type="button" id="forward15">15s ></button>
-            <button type="button" id="forward30">30s ></button>
-            <button type="button" id="forward60">60s ></button>
+    <div class="container">
+        <h1>Web Applications</h1>
+        <p class="subtitle">Choose an application to launch</p>
+
+        <div class="app-grid">
+            <a href="mp3-player/" class="app-card">
+                <div class="app-icon">🎵</div>
+                <h2 class="app-title">MP3 Player</h2>
+                <p class="app-description">
+                    Audio player with playback speed control and seek buttons
+                </p>
+            </a>
+
+            <a href="cbt-general/" class="app-card">
+                <div class="app-icon">📝</div>
+                <h2 class="app-title">CBT Answer Form</h2>
+                <p class="app-description">
+                    Practice tool for CBT-style multiple choice tests with timer and grading
+                </p>
+            </a>
         </div>
-        <label for="speedControl">Playback speed: </label>
-        <select id="speedControl">
-            <option value="0.25">0.25x</option>
-            <option value="0.5">0.5x</option>
-            <option value="0.75">0.75x</option>
-            <option value="1" selected>1x (Normal)</option>
-            <option value="1.25">1.25x</option>
-            <option value="1.5">1.5x</option>
-            <option value="1.75">1.75x</option>
-            <option value="2">2x</option>
-        </select>
     </div>
 </body>
 
