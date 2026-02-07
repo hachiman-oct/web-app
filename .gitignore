@@ -1,0 +1,9 @@
+icons/src/
+
+.vscode/
+
+# build output
+*.css.map
+*.js.map
+
+.hintrc
