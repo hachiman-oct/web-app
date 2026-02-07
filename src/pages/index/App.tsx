@@ -1,19 +1,19 @@
 function App() {
     const apps = [
         {
-            href: "/mp3-player/",
+            href: "./mp3-player/",
             icon: "🎵",
             title: "MP3 Player",
             description: "Audio player with playback speed control and seek buttons"
         },
         {
-            href: "/cbt-general/",
+            href: "./cbt-general/",
             icon: "📝",
             title: "CBT Answer Form",
             description: "Practice tool for CBT-style multiple choice tests with timer and grading"
         },
         {
-            href: "/text-saver/",
+            href: "./text-saver/",
             icon: "💾",
             title: "Text Saver",
             description: "Create and save text files directly in your browser. Mobile-first with dark mode support."
