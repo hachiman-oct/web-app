@@ -1,9 +1,43 @@
-icons/src/
+# Dependencies
+node_modules/
+package-lock.json
 
-.vscode/
-
-# build output
+# Build outputs
+dist/
+build/
 *.css.map
 *.js.map
 
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.iml
 .hintrc
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Temporary files
+*.tmp
+.cache/
+.temp/
+
+# Custom
+icons/src/
