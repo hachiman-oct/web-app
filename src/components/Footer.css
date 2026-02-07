@@ -1,0 +1,60 @@
+/* ==========================================
+   Footer Navigation Styles
+   ========================================== */
+.app-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.footer-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    color: #CBD5E1;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    min-width: 100px;
+}
+
+.footer-link:hover {
+    color: #F1F5F9;
+    background: rgba(71, 85, 105, 0.4);
+    border-color: #4F46E5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.footer-icon {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.2s ease;
+}
+
+.footer-link:hover .footer-icon {
+    transform: scale(1.1);
+}
+
+.footer-link span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+@media (max-width: 480px) {
+    .app-footer {
+        gap: 1.5rem;
+    }
+
+    .footer-link {
+        min-width: 80px;
+    }
+}

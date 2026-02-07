@@ -5,54 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="darkreader-lock">
-    <title>🎵 MP3 Player</title>
+    <title>MP3 Player</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js').then(() => {
-                console.log('Service Worker registered successfully.');
-            }).catch((error) => {
-                console.error('Service Worker registration failed:', error);
-            });
-        }
-    </script>
-    <script src="script.js"></script>
 </head>
 
 <body>
-    <div class="play-audio">
-        <h2>MP3 Player</h2>
-        <label for="fileInput">Select an MP3 file: </label>
-        <input type="file" accept="audio/mpeg" id="fileInput" title="Select MP3 file"
-            placeholder="Choose a file"><br><br>
-        <audio id="audioPlayer" controls></audio><br><br>
-        <div class="seek-buttons">
-            <button type="button" id="rewind60">
-                < 60s</button>
-                    <button type="button" id="rewind30">
-                        < 30s</button>
-                            <button type="button" id="rewind15">
-                                < 15s</button>
-                                    <button type="button" id="forward15">15s ></button>
-                                    <button type="button" id="forward30">30s ></button>
-                                    <button type="button" id="forward60">60s ></button>
-        </div>
-        <label for="speedControl">Playback speed: </label>
-        <select id="speedControl">
-            <option value="0.25">0.25x</option>
-            <option value="0.5">0.5x</option>
-            <option value="0.75">0.75x</option>
-            <option value="1" selected>1x (Normal)</option>
-            <option value="1.25">1.25x</option>
-            <option value="1.5">1.5x</option>
-            <option value="1.75">1.75x</option>
-            <option value="2">2x</option>
-        </select>
-    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/mp3-player/main.tsx"></script>
 </body>
 
 </html>
