@@ -557,6 +557,14 @@ body {
     box-shadow: var(--shadow-md);
 }
 
+.choice-btn.correct-input {
+    background: linear-gradient(135deg, #059669, var(--color-success));
+    border-color: var(--color-success);
+    color: white;
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+    font-weight: 600;
+}
+
 .choice-btn.correct-answer {
     background: linear-gradient(135deg, #059669, var(--color-success)) !important;
     border-color: var(--color-success) !important;

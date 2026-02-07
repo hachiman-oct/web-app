@@ -415,7 +415,7 @@ function App() {
                                                     className += ' selected'
                                                 }
                                                 if (correctInputEnabled && correctAnswers[qIdx] === cIdx) {
-                                                    className += ' selected'
+                                                    className += ' correct-input'
                                                 }
                                             }
 

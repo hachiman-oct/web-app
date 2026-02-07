@@ -5,6 +5,7 @@ function App() {
     const [textContent, setTextContent] = useState('')
     const [title, setTitle] = useState('')
     const [format, setFormat] = useState('txt')
+    const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
 
     // Load from localStorage on mount
     useEffect(() => {
@@ -64,9 +65,41 @@ function App() {
     return (
         <div className="container">
             <header className="header">
+                <button
+                    className="hamburger-btn"
+                    onClick={() => setIsSideMenuOpen(true)}
+                    aria-label="Open menu"
+                >
+                    <span className="hamburger-icon">☰</span>
+                </button>
                 <h1 className="app-title">📝 Text Saver</h1>
                 <p className="app-subtitle">Save text to file</p>
             </header>
+
+            {/* Side Panel Overlay */}
+            {isSideMenuOpen && (
+                <div
+                    className="side-panel-overlay"
+                    onClick={() => setIsSideMenuOpen(false)}
+                />
+            )}
+
+            {/* Side Panel */}
+            <div className={`side-panel ${isSideMenuOpen ? 'open' : ''}`}>
+                <div className="side-panel-header">
+                    <h2 className="side-panel-title">Menu</h2>
+                    <button
+                        className="close-btn"
+                        onClick={() => setIsSideMenuOpen(false)}
+                        aria-label="Close menu"
+                    >
+                        ✕
+                    </button>
+                </div>
+                <div className="side-panel-content">
+                    <Footer />
+                </div>
+            </div>
 
             <main className="main-content">
                 <div className="input-group">
@@ -128,8 +161,6 @@ function App() {
                     <span className="btn-text">Save File</span>
                 </button>
             </footer>
-
-            <Footer />
         </div>
     )
 }
